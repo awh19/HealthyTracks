@@ -6,7 +6,6 @@ public class ConnectionManager {
     private static String username = "z2hl7aklk6bs8bl";
     private static String password = "d397ug19mkb2lksa";
     private static Connection con;
-    private static String urlString;
 
     public static Connection getConnection(){
         try {

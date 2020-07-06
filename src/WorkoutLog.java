@@ -1,14 +1,24 @@
 import java.util.ArrayList;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
+import java.sql.*;
 
 public class WorkoutLog {
     private ArrayList<Exercise> exerciseList;
     private LocalDateTime currentDate;
+    private Connection con;
+    private Statement stmt;
+    private ResultSet rs;
 
     public WorkoutLog(){
         exerciseList = new ArrayList<>();
         currentDate = this.getDate();
+        con = ConnectionManager.getConnection();
+        try {
+            stmt = con.createStatement();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     public void listPossibleExercises(){
