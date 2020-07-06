@@ -1,3 +1,4 @@
+// implemented from user profile class
 import java.lang.*;
 import java.util.*;
 public class BMI_Calculator
@@ -36,11 +37,21 @@ public class BMI_Calculator
         catch(Exception e)
         {
             System.out.println("Invalid height and/or weight information!");
-            e.printStackTrace();
+            System.err.println(e);
+            w = 0.0;
+            h = 0.0;
 
         }
 
-        BMI = w/Math.pow(h,2);
+        try
+        {
+            BMI = w/Math.pow(h,2);
+        }
+        catch(Exception e)
+        {
+            System.err.println(e);
+            BMI = 0.0;
+        }
 
         BMI_Result = String.valueOf(BMI);
         return BMI_Result;
@@ -71,7 +82,8 @@ public class BMI_Calculator
         catch(Exception e)
         {
             System.out.println("Invalid weight information!");
-            e.printStackTrace();
+            System.err.println(e);
+            w = 0.0;
         }
 
         wKG = w*0.453592;
@@ -93,7 +105,8 @@ public class BMI_Calculator
         catch(Exception e)
         {
             System.out.println("Invalid height information!");
-            e.printStackTrace();
+            System.err.println(e);
+            h = 0.0;
         }
 
         hCM = h*30.48;
@@ -101,6 +114,6 @@ public class BMI_Calculator
 
     }
 
-    
+
 
 }
