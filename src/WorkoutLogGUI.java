@@ -2,8 +2,8 @@ import javax.swing.*;
 
 public class WorkoutLogGUI extends JFrame {
     private JPanel mainPanel;
-    private JList exerciseList;
-    private JScrollPane exerciseListContainer;
+    private JList logExerciseList;
+    private JScrollPane logExerciseListContainer;
     private JTextArea textFieldSets;
     private JButton SAVEButton;
     private JButton CANCELButton;
@@ -13,6 +13,11 @@ public class WorkoutLogGUI extends JFrame {
     private JLabel jLabelWeight;
     private JTextArea textFieldReps;
     private JTextArea textFieldWeight;
+    private JButton RESETLOGButton;
+    private JScrollPane exerciseListContainer;
+    private JList exerciseList;
+    private JPanel JPanelReps;
+    private JPanel JPanelWeight;
 
     public WorkoutLogGUI(String title){
         super(title);
