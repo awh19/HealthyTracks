@@ -25,6 +25,7 @@ public class WorkoutLog {
     }
 
     public void updateExercise(Exercise e){
+
         //TODO: UPDATE METHOD TO HAVE LOGIC ON WHETHER OR NOT TO UPDATE SETS/REPS/WEIGHT
         return;
     }
