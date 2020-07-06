@@ -3,7 +3,7 @@ import java.sql.*;
 public class ConnectionManager {
     private static String url = "jdbc:mysql://axxb6a0z2kydkco3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/nkfszrrxkyw5jypd";
     private static String driverName = "com.mysql.cj.jdbc.Driver";
-    private static String username = "z2hl7aklk6bs8bl";
+    private static String username = "z2hl7aklk6bs8bl0";
     private static String password = "d397ug19mkb2lksa";
     private static Connection con;
 

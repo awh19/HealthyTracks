@@ -3,17 +3,19 @@ import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 import java.sql.*;
 
+
 public class WorkoutLog {
     private ArrayList<Exercise> exerciseList;
     private LocalDateTime currentDate;
     private Connection con;
     private Statement stmt;
     private ResultSet rs;
+    private ConnectionManager conMag = new ConnectionManager();
 
     public WorkoutLog(){
         exerciseList = new ArrayList<>();
         currentDate = this.getDate();
-        con = ConnectionManager.getConnection();
+        con = conMag.getConnection();
         try {
             stmt = con.createStatement();
         } catch (SQLException throwables) {
@@ -23,6 +25,14 @@ public class WorkoutLog {
 
     public void listPossibleExercises(){
         //TODO: CONNECT TO DATABASE HERE AND display LIST OF EXERCISES
+        try {
+            rs = stmt.executeQuery("SELECT * FROM tbl_exercises");
+            while(rs.next()){
+                System.out.println(rs.getString("exerciseId") + "\t" + rs.getString("name") + "\t" + rs.getString("description"));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
         return;
     }
 
