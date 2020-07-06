@@ -8,8 +8,8 @@ public class BMI_Calculator
     // default setting, show 0 on user profile
     public BMI_Calculator()
     {
-        this.height = "0";
-        this.weight = "0";
+        this.height = "0.0";
+        this.weight = "0.0";
     }
 
     public BMI_Calculator(String height, String weight)
@@ -29,6 +29,7 @@ public class BMI_Calculator
         {
             h = Double.parseDouble(this.height);
             w = Double.parseDouble(this.weight);
+            h = h/100;
 
 
         }
@@ -43,6 +44,61 @@ public class BMI_Calculator
 
         BMI_Result = String.valueOf(BMI);
         return BMI_Result;
+    }
+
+    public void setHeight(String height)
+    {
+        this.height = height;
+    }
+
+    public void setWeight(String weight)
+    {
+        this.weight = weight;
+    }
+
+    // convet lbs to kg
+    public String convertLBS(String weight)
+    {
+        double w = 0.0;
+        double wKG = 0.0;
+
+
+
+        try
+        {
+            w = Double.parseDouble(weight);
+        }
+        catch(Exception e)
+        {
+            System.out.println("Invalid weight information!");
+            e.printStackTrace();
+        }
+
+        wKG = w*0.453592;
+        return String.valueOf(wKG);
+
+
+    }
+
+    // convert Feet tall to cm tall
+    public String converFEET(String height)
+    {
+        double h =0.0;
+        double hCM = 0.0;
+
+        try
+        {
+            h = Double.parseDouble(height);
+        }
+        catch(Exception e)
+        {
+            System.out.println("Invalid height information!");
+            e.printStackTrace();
+        }
+
+        hCM = h*30.48;
+        return String.valueOf(hCM);
+
     }
 
 }
