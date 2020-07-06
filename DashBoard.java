@@ -59,26 +59,24 @@ public class DashBoard {
 		frame.setBounds(100, 100, 434, 318);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setResizable(true);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(0, 0, 429, 289);
+		panel_1.setBounds(0, 0, 428, 290);
 		frame.getContentPane().add(panel_1);
 		panel_1.setLayout(new BorderLayout(0, 0));
+		
+		
 		
 		JButton btnTimerStopwatch = new JButton("Timer & Stopwatch");
 		btnTimerStopwatch.setBackground(Color.RED);
 		btnTimerStopwatch.setOpaque(true);
 		panel_1.add(btnTimerStopwatch, BorderLayout.CENTER);
 		
-		JButton btnExerciseReminder = new JButton("Exercise Reminder");
-		btnExerciseReminder.setBackground(Color.RED);
-		btnExerciseReminder.setOpaque(true);
-		panel_1.add(btnExerciseReminder, BorderLayout.WEST);
-		
 		JButton btnExerciseLog = new JButton("Exercise Log");
 		btnExerciseLog.setBackground(Color.RED);
 		btnExerciseLog.setOpaque(true);
-		panel_1.add(btnExerciseLog, BorderLayout.EAST);
+		panel_1.add(btnExerciseLog, BorderLayout.WEST);
 		
 		JLabel lblHealhyTracks = new JLabel("Healthy Tracks");
 		lblHealhyTracks.setHorizontalAlignment(SwingConstants.CENTER);
