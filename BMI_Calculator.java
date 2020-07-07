@@ -67,7 +67,7 @@ public class BMI_Calculator
         this.weight = weight;
     }
 
-    // convet lbs to kg
+    // convert lbs to kg
     public String convertLBS(String weight)
     {
         double w = 0.0;
@@ -78,6 +78,7 @@ public class BMI_Calculator
         try
         {
             w = Double.parseDouble(weight);
+
         }
         catch(Exception e)
         {
@@ -87,29 +88,54 @@ public class BMI_Calculator
         }
 
         wKG = w*0.453592;
+
         return String.valueOf(wKG);
 
 
     }
 
     // convert Feet tall to cm tall
-    public String converFEET(String height)
+    public String convertFEET(String height)
     {
-        double h =0.0;
+        String[] height_sep = null;
+
+
+
+        if(height.contains("."))
+        {
+            height_sep = height.split("\\.");
+
+
+        }
+        else if(height.contains("'"))
+        {
+            height_sep = height.split("\'");
+        }
+
+        double hFeet = 0.0;
+        double hInch = 0.0;
         double hCM = 0.0;
 
         try
         {
-            h = Double.parseDouble(height);
+            if(height_sep.length > 2)
+            {
+                throw new Exception("Invalid height information!");
+            }
+            hFeet = Double.parseDouble(height_sep[0]);
+            hInch = Double.parseDouble(height_sep[1]);
+
         }
+
         catch(Exception e)
         {
             System.out.println("Invalid height information!");
             System.err.println(e);
-            h = 0.0;
+            hFeet = 0.0;
+            hInch = 0.0;
         }
 
-        hCM = h*30.48;
+        hCM = hFeet*30.48 + hInch*2.54;
         return String.valueOf(hCM);
 
     }

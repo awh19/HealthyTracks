@@ -92,7 +92,7 @@ public class DashBoard extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(44, 62, 80));
 
-        jLabelUserProfile.setIcon(new javax.swing.ImageIcon("C:\\Users\\aet00\\OneDrive\\Documents\\GitHub\\HealthyTracks\\usericon.png")); // NOI18N
+        jLabelUserProfile.setIcon(new javax.swing.ImageIcon("./usericon.png")); // NOI18N
         jLabelUserProfile.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelUserProfile.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -104,7 +104,7 @@ public class DashBoard extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("User Profile");
 
-        jLabelTimer.setIcon(new javax.swing.ImageIcon("C:\\Users\\aet00\\OneDrive\\Documents\\GitHub\\HealthyTracks\\timer.PNG")); // NOI18N
+        jLabelTimer.setIcon(new javax.swing.ImageIcon("./timer.PNG")); // NOI18N
         jLabelTimer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelTimer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -116,7 +116,7 @@ public class DashBoard extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Timer & Stopwatch");
 
-        jLabelBMICalc.setIcon(new javax.swing.ImageIcon("C:\\Users\\aet00\\OneDrive\\Documents\\GitHub\\HealthyTracks\\Calculator.png")); // NOI18N
+        jLabelBMICalc.setIcon(new javax.swing.ImageIcon("./Calculator.png")); // NOI18N
         jLabelBMICalc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelBMICalc.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -225,7 +225,9 @@ public class DashBoard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabelTimerMouseClicked
 
-    private void jLabelBMICalcMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBMICalcMouseClicked
+    public void jLabelBMICalcMouseClicked(java.awt.event.MouseEvent evt) {
+        BMIcalc_Dash BMIDB = new BMIcalc_Dash();
+        //GEN-FIRST:event_jLabelBMICalcMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabelBMICalcMouseClicked
 

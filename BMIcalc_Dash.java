@@ -22,37 +22,15 @@ public class BMIcalc_Dash extends javax.swing.JFrame implements ActionListener
     private JLabel close;
     private JPanel panel_2;
     private JLabel minimize;
+    private JPanel panel_3;
+    private JButton btnUnitC1;
+    private JButton btnUnitC2;
 
-
-    public static void main(String[] args)
-    {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    BMIcalc_Dash B = new BMIcalc_Dash();
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
     public BMIcalc_Dash()
     {
         initialize();
         showBMI.setVisible(false);
         frame.setVisible(true);
-        /*EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    initialize();
-                    showBMI.setVisible(false);
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });*/
 
     }
 
@@ -89,6 +67,22 @@ public class BMIcalc_Dash extends javax.swing.JFrame implements ActionListener
         btnCalculate.setBackground(new java.awt.Color(192, 57, 43));
         btnCalculate.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnCalculate.setForeground(new java.awt.Color(255, 255, 255));
+        btnCalculate.addActionListener(this);
+
+        btnUnitC1 =  new JButton("FEET TO CM");
+        btnUnitC1.setBackground(new java.awt.Color(192, 57, 43));
+        btnUnitC1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        btnUnitC1.setForeground(new java.awt.Color(255, 255, 255));
+        btnUnitC1.addActionListener(this);
+
+        btnUnitC2 =  new JButton("LBS TO KG");
+        btnUnitC2.setBackground(new java.awt.Color(192, 57, 43));
+        btnUnitC2.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        btnUnitC2.setForeground(new java.awt.Color(255, 255, 255));
+        btnUnitC2.addActionListener(this);
+
+
+
 
         close = new JLabel("X");
         close.setBackground(Color.RED);
@@ -112,61 +106,54 @@ public class BMIcalc_Dash extends javax.swing.JFrame implements ActionListener
             }
         });
 
-        panel_2 = new JPanel(new BorderLayout());
-        panel_2.setBackground(new java.awt.Color(248, 148, 6));
+        panel_1 = new JPanel(new BorderLayout());
+        panel_1.setBackground(new java.awt.Color(248, 148, 6));
 
-        panel_2.add(minimize, BorderLayout.LINE_START);
-        panel_2.add(close,BorderLayout.AFTER_LINE_ENDS);
+        panel_1.add(minimize, BorderLayout.LINE_START);
+        panel_1.add(close,BorderLayout.AFTER_LINE_ENDS);
 
 
 
 
         showBMI = new JTextArea();
         showBMI.setBackground(new java.awt.Color(108, 122, 137));
-        showBMI.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        showBMI.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         showBMI.setForeground(new java.awt.Color(228, 241, 254));
 
-        btnCalculate.addActionListener(this);
 
 
 
+        frame.add(panel_1, BorderLayout.NORTH);
 
-        panel_1 = new JPanel();
-        panel_1.setBackground(new java.awt.Color(248, 148, 6));
+        panel_2 = new JPanel();
+        panel_2.setBackground(new java.awt.Color(248, 148, 6));
 
-
-
-
-
-
-
-
-
-
+        panel_2.add(heightLabel);
+        panel_2.add(heightText);
+        panel_2.add(btnUnitC1);
+        panel_2.add(weightLabel);
+        panel_2.add(weightText);
+        panel_2.add(btnUnitC2);
+        panel_2.add(btnCalculate);
 
 
 
 
 
-        frame.add(panel_2, BorderLayout.NORTH);
+        frame.add(panel_2, BorderLayout.CENTER);
 
+        panel_3 = new JPanel();
+        panel_3.setBackground(new java.awt.Color(248, 148, 6));
+        panel_3.add(showBMI);
 
-        panel_1.add(heightLabel);
-        panel_1.add(heightText);
-        panel_1.add(weightLabel);
-        panel_1.add(weightText);
-        panel_1.add(btnCalculate);
-        panel_1.add(showBMI);
+        frame.add(panel_3, BorderLayout.SOUTH);
 
-
-
-
-        frame.add(panel_1, BorderLayout.CENTER);
 
 
 
 
         frame.setBounds(100, 100, 350, 350);
+
 
 
         pack();
@@ -175,13 +162,36 @@ public class BMIcalc_Dash extends javax.swing.JFrame implements ActionListener
 
     public void actionPerformed(ActionEvent e)
     {
-        String h = heightText.getText();
-        String w = weightText.getText();
-        BMI_Calculator BC = new BMI_Calculator(h, w);
-        String emulator_result = BC.BMI_Calculate();
-        showBMI.setVisible(true);
-        showBMI.setText("");
-        showBMI.setText("BMI: "+emulator_result);
+        int i = 1;
+        if(e.getSource() == btnUnitC1)
+        {
+            BMI_Calculator BC = new BMI_Calculator();
+            String CM = BC.convertFEET(heightText.getText());
+            heightText.setText(CM);
+            btnUnitC1.setVisible(false);
+
+
+        }
+        else if(e.getSource() == btnUnitC2)
+        {
+
+            BMI_Calculator BC = new BMI_Calculator();
+            String KG = BC.convertLBS(weightText.getText());
+            weightText.setText(KG);
+            btnUnitC2.setVisible(false);
+        }
+        else if(e.getSource() == btnCalculate)
+        {
+            String h = heightText.getText();
+            String w = weightText.getText();
+            BMI_Calculator BC = new BMI_Calculator(h, w);
+            String emulator_result = BC.BMI_Calculate();
+            showBMI.setVisible(true);
+            showBMI.setText("");
+            showBMI.setText("BMI: "+emulator_result);
+
+        }
+
 
 
 
