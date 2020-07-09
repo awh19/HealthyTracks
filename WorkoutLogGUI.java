@@ -1,10 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.mycompany.healthytrackguis;
-
 /**
  *
  * @author Andrew
@@ -110,11 +103,6 @@ public class WorkoutLogGUI extends javax.swing.JFrame {
 
         weightTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         weightTextField.setToolTipText("Enter your weight");
-        weightTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                weightTextFieldActionPerformed(evt);
-            }
-        });
 
         setsTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         setsTextField.setToolTipText("Enter your number of sets");
@@ -222,26 +210,28 @@ public class WorkoutLogGUI extends javax.swing.JFrame {
     }// </editor-fold>
 
     private void addExerciseButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        System.out.println("This is where we would add an exercise to the workout log");
         // TODO add your handling code here:
     }
 
     private void removeExerciseButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        System.out.println("This is where we would remove an exercise from the workout log");
         // TODO add your handling code here:
     }
 
-    private void weightTextFieldActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        System.out.println("This is where we save the workout log and call on the controller");
         // TODO add your handling code here:
     }
 
     private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        System.out.println("This is where we reset the workout log and call on the controller");
         // TODO add your handling code here:
     }
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        System.out.println("This is where we cancel the GUI");
         // TODO add your handling code here:
     }
 
