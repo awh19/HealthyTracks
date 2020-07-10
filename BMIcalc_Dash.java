@@ -101,7 +101,8 @@ public class BMIcalc_Dash extends javax.swing.JFrame implements ActionListener
         minimize.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         minimize.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent e) {
-                DashBoard DB = new DashBoard();
+                //DashBoard DB = new DashBoard();
+                frame.setState(javax.swing.JFrame.ICONIFIED);
 
             }
         });
@@ -189,6 +190,7 @@ public class BMIcalc_Dash extends javax.swing.JFrame implements ActionListener
             showBMI.setVisible(true);
             showBMI.setText("");
             showBMI.setText("BMI: "+emulator_result);
+            btnUnitC2.setVisible(false);btnUnitC1.setVisible(false);
 
         }
 
