@@ -13,6 +13,14 @@ public class Exercise {
         reps = 0;
     }
 
+    public Exercise(String n, String d){
+        name = n;
+        description = d;
+        weight = 0.0;
+        sets = 0;
+        reps = 0;
+    }
+
     public String getName() {
         return name;
     }

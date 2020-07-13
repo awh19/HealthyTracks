@@ -1,5 +1,38 @@
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
 public class WorkoutLogController {
     private WorkoutLog workoutLog;
+    private Connection con;
+    private Statement stmt;
+    private ResultSet rs;
+    private ConnectionManager conMag = new ConnectionManager();
+
+    public WorkoutLogController() {
+        con = conMag.getConnection();
+        try {
+            stmt = con.createStatement();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    public ArrayList<String> getPossibleExerciseNames(){
+        ArrayList<String> possibleExerciseNames = new ArrayList<>();
+        try {
+            //TODO: Create list of exercises and use GUI to populate list.
+            rs = stmt.executeQuery("SELECT * FROM tbl_exercises");
+            while(rs.next()){
+                possibleExerciseNames.add(rs.getString("name"));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return possibleExerciseNames;
+    }
 
 
 }

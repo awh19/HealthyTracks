@@ -3,11 +3,14 @@
  * @author Andrew
  */
 public class WorkoutLogGUI extends javax.swing.JFrame {
-
+    private WorkoutLogController logController;
+    private WorkoutLog logModel;
     /**
      * Creates new form WorkoutLogGUI
      */
     public WorkoutLogGUI() {
+        logController = new WorkoutLogController();
+        logModel = new WorkoutLog();
         initComponents();
     }
 
@@ -21,7 +24,7 @@ public class WorkoutLogGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         exerciseListPanel = new javax.swing.JScrollPane();
-        exerciseList = new javax.swing.JList<>();
+        exerciseList = new javax.swing.JList(logController.getPossibleExerciseNames().toArray());
         logListPanel = new javax.swing.JScrollPane();
         logList = new javax.swing.JList<>();
         jPanel1 = new javax.swing.JPanel();
@@ -42,10 +45,8 @@ public class WorkoutLogGUI extends javax.swing.JFrame {
         setBackground(new java.awt.Color(50, 58, 69));
         setResizable(false);
 
-        exerciseList.setModel(exerciseList.getModel()); //TODO: Get DB Model Here from Controller
         exerciseListPanel.setViewportView(exerciseList);
 
-        logList.setModel(logList.getModel()); //TODO: Get DB Model Here from Controller
         logListPanel.setViewportView(logList);
 
         jPanel1.setBackground(new java.awt.Color(50, 58, 69));
