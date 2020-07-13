@@ -1,3 +1,9 @@
+import javax.swing.JButton;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.GroupLayout;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -35,6 +41,9 @@ public class DashBoard extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabelBMICalc = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        
+        
+        
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -127,64 +136,94 @@ public class DashBoard extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("BMI Calculator");
+        
+        JButton btnTimer = new JButton("Timer");
+        btnTimer.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		timer2 TimerGUI = new timer2();
+        		TimerGUI.setVisible(true);
+
+        	}
+        });
+        
+        btnStopwatch = new JButton("Stopwatch");
+        btnStopwatch.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		StopWatch stopWatchGUI = new StopWatch();
+        		stopWatchGUI.setVisible(true);
+
+        	}
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(jLabelUserProfile))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(52, 52, 52)
-                                .addComponent(jLabel3)))
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(157, 157, 157)
-                                .addComponent(jLabel4))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(184, 184, 184)
-                                .addComponent(jLabelTimer))))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(162, 162, 162)
-                                .addComponent(jLabelBMICalc)
-                                .addGap(26, 26, 26))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel6)
-                                .addGap(45, 45, 45)))
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(405, Short.MAX_VALUE))
+        	jPanel3Layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(jPanel3Layout.createSequentialGroup()
+        			.addGroup(jPanel3Layout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(jPanel3Layout.createSequentialGroup()
+        					.addGroup(jPanel3Layout.createParallelGroup(Alignment.LEADING)
+        						.addGroup(jPanel3Layout.createSequentialGroup()
+        							.addGap(27)
+        							.addComponent(jLabelUserProfile))
+        						.addGroup(jPanel3Layout.createSequentialGroup()
+        							.addGap(52)
+        							.addComponent(jLabel3)))
+        					.addGroup(jPanel3Layout.createParallelGroup(Alignment.LEADING)
+        						.addGroup(jPanel3Layout.createSequentialGroup()
+        							.addGap(184)
+        							.addComponent(jLabelTimer))
+        						.addGroup(jPanel3Layout.createSequentialGroup()
+        							.addGap(157)
+        							.addGroup(jPanel3Layout.createParallelGroup(Alignment.LEADING)
+        								.addGroup(jPanel3Layout.createSequentialGroup()
+        									.addComponent(btnTimer)
+        									.addPreferredGap(ComponentPlacement.RELATED)
+        									.addComponent(btnStopwatch))
+        								.addComponent(jLabel4))))
+        					.addPreferredGap(ComponentPlacement.RELATED))
+        				.addGroup(jPanel3Layout.createSequentialGroup()
+        					.addGap(28)
+        					.addGroup(jPanel3Layout.createParallelGroup(Alignment.TRAILING)
+        						.addGroup(jPanel3Layout.createSequentialGroup()
+        							.addComponent(jLabelBMICalc)
+        							.addGap(26))
+        						.addGroup(jPanel3Layout.createSequentialGroup()
+        							.addComponent(jLabel6)
+        							.addGap(45)))
+        					.addComponent(jLabel2, GroupLayout.PREFERRED_SIZE, 136, GroupLayout.PREFERRED_SIZE)))
+        			.addContainerGap(392, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabelUserProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabelTimer)
-                        .addGap(30, 30, 30)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabelBMICalc, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6)))
-                .addContainerGap(60, Short.MAX_VALUE))
+        	jPanel3Layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(jPanel3Layout.createSequentialGroup()
+        			.addGroup(jPanel3Layout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(jPanel3Layout.createSequentialGroup()
+        					.addGap(21)
+        					.addGroup(jPanel3Layout.createParallelGroup(Alignment.TRAILING)
+        						.addGroup(jPanel3Layout.createSequentialGroup()
+        							.addComponent(jLabelUserProfile, GroupLayout.PREFERRED_SIZE, 141, GroupLayout.PREFERRED_SIZE)
+        							.addPreferredGap(ComponentPlacement.RELATED)
+        							.addGroup(jPanel3Layout.createParallelGroup(Alignment.BASELINE)
+        								.addComponent(jLabel3, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
+        								.addComponent(jLabel4, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)))
+        						.addGroup(jPanel3Layout.createSequentialGroup()
+        							.addComponent(jLabelTimer)
+        							.addGap(30)))
+        					.addGap(18)
+        					.addGroup(jPanel3Layout.createParallelGroup(Alignment.LEADING)
+        						.addComponent(jLabel2, GroupLayout.PREFERRED_SIZE, 179, GroupLayout.PREFERRED_SIZE)
+        						.addGroup(jPanel3Layout.createSequentialGroup()
+        							.addComponent(jLabelBMICalc, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE)
+        							.addPreferredGap(ComponentPlacement.RELATED)
+        							.addComponent(jLabel6))))
+        				.addGroup(jPanel3Layout.createSequentialGroup()
+        					.addGap(206)
+        					.addGroup(jPanel3Layout.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(btnTimer)
+        						.addComponent(btnStopwatch, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))))
+        			.addContainerGap(60, Short.MAX_VALUE))
         );
+        jPanel3.setLayout(jPanel3Layout);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -265,6 +304,9 @@ public class DashBoard extends javax.swing.JFrame {
             }
         });
     }
+    
+    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -279,5 +321,5 @@ public class DashBoard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelUserProfile;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    // End of variables declaration//GEN-END:variables
+    private JButton btnStopwatch;
 }
