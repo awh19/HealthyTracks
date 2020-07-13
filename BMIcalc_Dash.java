@@ -101,7 +101,8 @@ public class BMIcalc_Dash extends javax.swing.JFrame implements ActionListener
         minimize.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         minimize.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent e) {
-                DashBoard DB = new DashBoard();
+                //DashBoard DB = new DashBoard();
+                frame.setState(javax.swing.JFrame.ICONIFIED);
 
             }
         });
@@ -117,7 +118,7 @@ public class BMIcalc_Dash extends javax.swing.JFrame implements ActionListener
 
         showBMI = new JTextArea();
         showBMI.setBackground(new java.awt.Color(108, 122, 137));
-        showBMI.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        showBMI.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         showBMI.setForeground(new java.awt.Color(228, 241, 254));
 
 
@@ -188,7 +189,13 @@ public class BMIcalc_Dash extends javax.swing.JFrame implements ActionListener
             String emulator_result = BC.BMI_Calculate();
             showBMI.setVisible(true);
             showBMI.setText("");
-            showBMI.setText("BMI: "+emulator_result);
+            //showBMI.setText("BMI: "+emulator_result);
+            showBMI.setText("Heights: "+h+" cm\n" +"Weights: "+w+" kg\n"+"BMI: "+emulator_result);
+            btnUnitC2.setVisible(true);
+            btnUnitC1.setVisible(true);
+
+            weightText.setText("");
+            heightText.setText("");
 
         }
 
