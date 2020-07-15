@@ -25,6 +25,7 @@ public class BMIcalc_Dash extends javax.swing.JFrame implements ActionListener
     private JPanel panel_3;
     private JButton btnUnitC1;
     private JButton btnUnitC2;
+    private JLabel title;
 
     public BMIcalc_Dash()
     {
@@ -40,6 +41,7 @@ public class BMIcalc_Dash extends javax.swing.JFrame implements ActionListener
         frame.setLocationRelativeTo(null);
 
         frame.setUndecorated(true);
+
         //frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
 
 
@@ -82,11 +84,14 @@ public class BMIcalc_Dash extends javax.swing.JFrame implements ActionListener
         btnUnitC2.addActionListener(this);
 
 
+        title = new JLabel(" BMI Calculator", JLabel.LEFT);
+        title.setBackground(Color.RED);
+        title.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        title.setForeground(new java.awt.Color(255, 255, 255));
 
-
-        close = new JLabel("X");
+        close = new JLabel("  X",JLabel.RIGHT);
         close.setBackground(Color.RED);
-        close.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        close.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         close.setForeground(new java.awt.Color(255, 255, 255));
         close.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         close.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -95,8 +100,8 @@ public class BMIcalc_Dash extends javax.swing.JFrame implements ActionListener
             }
         });
 
-        minimize = new JLabel("<<");
-        minimize.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        minimize = new JLabel("-", JLabel.RIGHT);
+        minimize.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         minimize.setForeground(new java.awt.Color(255, 255, 255));
         minimize.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         minimize.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -110,8 +115,9 @@ public class BMIcalc_Dash extends javax.swing.JFrame implements ActionListener
         panel_1 = new JPanel(new BorderLayout());
         panel_1.setBackground(new java.awt.Color(248, 148, 6));
 
-        panel_1.add(minimize, BorderLayout.LINE_START);
-        panel_1.add(close,BorderLayout.AFTER_LINE_ENDS);
+        panel_1.add(title,BorderLayout.LINE_START);
+        panel_1.add(minimize, BorderLayout.CENTER);
+        panel_1.add(close,BorderLayout.LINE_END);
 
 
 
@@ -124,10 +130,12 @@ public class BMIcalc_Dash extends javax.swing.JFrame implements ActionListener
 
 
 
+
         frame.add(panel_1, BorderLayout.NORTH);
 
         panel_2 = new JPanel();
-        panel_2.setBackground(new java.awt.Color(248, 148, 6));
+        //panel_2.setBackground(new java.awt.Color(248, 148, 6));
+        panel_2.setBackground(new java.awt.Color(44, 62, 80));
 
         panel_2.add(heightLabel);
         panel_2.add(heightText);
@@ -144,8 +152,9 @@ public class BMIcalc_Dash extends javax.swing.JFrame implements ActionListener
         frame.add(panel_2, BorderLayout.CENTER);
 
         panel_3 = new JPanel();
-        panel_3.setBackground(new java.awt.Color(248, 148, 6));
+        //panel_3.setBackground(new java.awt.Color(248, 148, 6));
         panel_3.add(showBMI);
+        panel_3.setBackground(new java.awt.Color(44, 62, 80));
 
         frame.add(panel_3, BorderLayout.SOUTH);
 
