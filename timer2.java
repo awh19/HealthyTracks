@@ -28,9 +28,11 @@ public class timer2 extends javax.swing.JFrame {
 	int sec1, min1, hour1;
 	Timer timer;
 	JLabel secondLabel, minuteLabel, hourLabel;
+	JButton startButton;
 	
 	boolean flag = true;
 	boolean ifStop = false;
+
 
 	/**
 	 * Launch the application.
@@ -54,7 +56,7 @@ public class timer2 extends javax.swing.JFrame {
 	public timer2() {
 		addWindowListener(new WindowAdapter() {
 			@Override
-			public void windowClosed(WindowEvent e) {
+			public synchronized void windowClosed(WindowEvent e) {
 			}
 		});
 		
@@ -99,9 +101,9 @@ public class timer2 extends javax.swing.JFrame {
 		label_1.setForeground(Color.WHITE);
 		contentPane.add(label_1);
 		
-		JButton startButton = new JButton("Start");
+		startButton = new JButton("Start");
 		startButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public synchronized void actionPerformed(ActionEvent e) {
 				btnStartActionPerformed(e);
 			}
 		});
@@ -114,7 +116,8 @@ public class timer2 extends javax.swing.JFrame {
 		
 		JButton stopButton = new JButton("Stop");
 		stopButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public  synchronized void actionPerformed(ActionEvent e) {
+				startButton.setVisible(true);
 				sec1 = sec;
 				min1 = min;
 				hour1 = hour;
@@ -145,12 +148,12 @@ public class timer2 extends javax.swing.JFrame {
 		
 		JButton resetButton = new JButton("Reset");
 		resetButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public synchronized void actionPerformed(ActionEvent e) {
 				try {
 					timer.stop();
 				}catch(Exception ex) {}
 				
-				
+				startButton.setVisible(true);
 				minuteLabel.setText("0");
 				secondLabel.setText("0");
 				hourLabel.setText("0");
@@ -209,21 +212,21 @@ public class timer2 extends javax.swing.JFrame {
 		
 		
 		cbHour.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public synchronized void actionPerformed(ActionEvent e) {
 				hourLabel.setText(cbHour.getSelectedItem().toString());
 				hour = Integer.parseInt(hourLabel.getText());
 			}
 		});
 		
 		cbMinutes.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public synchronized void actionPerformed(ActionEvent e) {
 				minuteLabel.setText(cbMinutes.getSelectedItem().toString());
 				min = Integer.parseInt(minuteLabel.getText());
 			}
 		});
 		
 		cbSeconds.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public synchronized void actionPerformed(ActionEvent e) {
 				secondLabel.setText(cbSeconds.getSelectedItem().toString());
 				sec = Integer.parseInt(secondLabel.getText());
 				
@@ -234,13 +237,14 @@ public class timer2 extends javax.swing.JFrame {
 		
 	}
 	
-	public void btnStartActionPerformed(java.awt.event.ActionEvent evt) {	
+	public synchronized void btnStartActionPerformed(java.awt.event.ActionEvent evt) {	
+		startButton.setVisible(false);
 		timer = new Timer(1000, new ActionListener() {
 		
 		@Override
-		public void actionPerformed(ActionEvent e) {
-
+		public synchronized void actionPerformed(ActionEvent e) {
 			
+
 			if(ifStop) {
 				sec1 = sec;
 				min1 = min;
