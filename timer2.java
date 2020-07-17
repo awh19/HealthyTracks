@@ -16,6 +16,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.Timer;
 import java.awt.Color;
 import javax.swing.JTextField;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 
 public class timer2 extends javax.swing.JFrame {
@@ -50,9 +52,14 @@ public class timer2 extends javax.swing.JFrame {
 	 * Create the frame.
 	 */
 	public timer2() {
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosed(WindowEvent e) {
+			}
+		});
 		
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -102,7 +109,7 @@ public class timer2 extends javax.swing.JFrame {
 		
 		startButton.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		startButton.setBounds(20, 152, 117, 29);
-		startButton.setBackground(new java.awt.Color(44, 62, 80));
+		
 		contentPane.add(startButton);
 		
 		JButton stopButton = new JButton("Stop");
@@ -139,7 +146,11 @@ public class timer2 extends javax.swing.JFrame {
 		JButton resetButton = new JButton("Reset");
 		resetButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				timer.stop();
+				try {
+					timer.stop();
+				}catch(Exception ex) {}
+				
+				
 				minuteLabel.setText("0");
 				secondLabel.setText("0");
 				hourLabel.setText("0");
@@ -152,6 +163,9 @@ public class timer2 extends javax.swing.JFrame {
 				cbHour.setSelectedIndex(0); 
 				cbMinutes.setSelectedIndex(0); 
 				cbSeconds.setSelectedIndex(0); 
+				minuteLabel.setForeground(Color.WHITE);
+				secondLabel.setForeground(Color.WHITE);
+				hourLabel.setForeground(Color.WHITE);
 			}
 		});
 		resetButton.setFont(new Font("Times New Roman", Font.PLAIN, 20));
@@ -257,10 +271,10 @@ public class timer2 extends javax.swing.JFrame {
 					minuteLabel.setForeground(Color.RED);
 					secondLabel.setForeground(Color.RED);
 					hourLabel.setForeground(Color.RED);
+					}
 					hourLabel.setText(""+ hour);
 					minuteLabel.setText(""+ min);
 					secondLabel.setText(""+ sec);
-					}
 				}
 				
 			}
