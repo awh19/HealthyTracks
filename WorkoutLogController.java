@@ -20,18 +20,18 @@ public class WorkoutLogController {
         }
     }
 
-    public ArrayList<String> getPossibleExerciseNames(){
-        ArrayList<String> possibleExerciseNames = new ArrayList<>();
+    public ArrayList<Exercise> getPossibleExercises(){
+        ArrayList<Exercise> possibleExercises = new ArrayList<>();
         try {
             //TODO: Create list of exercises and use GUI to populate list.
             rs = stmt.executeQuery("SELECT * FROM tbl_exercises");
             while(rs.next()){
-                possibleExerciseNames.add(rs.getString("name"));
+                possibleExercises.add(new Exercise(rs.getString("name"), rs.getString("description")));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return possibleExerciseNames;
+        return possibleExercises;
     }
 
 

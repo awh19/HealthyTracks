@@ -5,6 +5,7 @@
 public class WorkoutLogGUI extends javax.swing.JFrame {
     private WorkoutLogController logController;
     private WorkoutLog logModel;
+
     /**
      * Creates new form WorkoutLogGUI
      */
@@ -24,7 +25,8 @@ public class WorkoutLogGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         exerciseListPanel = new javax.swing.JScrollPane();
-        exerciseList = new javax.swing.JList(logController.getPossibleExerciseNames().toArray());
+        exerciseList = new javax.swing.JList(logController.getPossibleExercises().toArray());
+        exerciseList.setCellRenderer(new ExerciseListCellRenderer());
         logListPanel = new javax.swing.JScrollPane();
         logList = new javax.swing.JList<>();
         jPanel1 = new javax.swing.JPanel();
@@ -40,6 +42,8 @@ public class WorkoutLogGUI extends javax.swing.JFrame {
         cancelButton = new javax.swing.JButton();
         resetButton = new javax.swing.JButton();
         saveButton = new javax.swing.JButton();
+
+
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(50, 58, 69));
