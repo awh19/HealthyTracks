@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -439,14 +441,70 @@ public class RegisterForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     	
     	profileConnector c = new profileConnector();
-    	  	
-    	c.profile.setFirstName(jTextFirstName.getText());
-    	c.profile.setLastName(jTextLastName.getText());
-    	c.profile.setUsername(jTextUsername.getText());
-    	c.profile.setPassword(jPasswordField1.getPassword().toString());
-    	c.profile.setWeight(Double.valueOf(jTextWeight.getText()));
-    	c.profile.setFeet(Double.valueOf(jText_feet.getText()));
-    	c.profile.setFeet(Double.valueOf(jText_inch.getText()));
+    	
+    	if(jTextFirstName.getText().contentEquals("")) {
+    		JOptionPane.showMessageDialog(rootPane,  "Enter valid first name!", "Enter Name", 0);
+    		return;
+    	}else {
+        	c.profile.setFirstName(jTextFirstName.getText());
+
+    	}
+    	if(jTextLastName.getText().contentEquals("")) {
+    		JOptionPane.showMessageDialog(rootPane,  "Enter valid last name!", "Enter Name", 0);
+    		return;
+    	}else {   		
+    		c.profile.setLastName(jTextLastName.getText());
+    	}
+    	
+    	if(jPasswordField1.getPassword().equals("")) {
+    		JOptionPane.showMessageDialog(rootPane,  "Enter valid password!", "Enter Password", 0);
+    		return;
+    	}else {   
+    		c.profile.setPassword(jPasswordField1.getPassword().toString());
+    	}
+    	
+    	if(jTextUsername.getText().contentEquals("")) {
+    		JOptionPane.showMessageDialog(rootPane,  "Enter valid ussername!", "Username", 0);
+    		return;
+    	}else {   		
+    		c.profile.setUsername(jTextUsername.getText());
+    	}	
+		
+
+    	if(jTextWeight.getText().contentEquals("")) {
+    		JOptionPane.showMessageDialog(rootPane,  "Enter valid weight!", "Weight", 0);
+    		return;
+    	}else {
+    		try {
+    			c.profile.setWeight(Double.valueOf(jTextWeight.getText()));
+    		}catch(NumberFormatException e) {
+    			JOptionPane.showMessageDialog(rootPane,  "Enter valid weight!", "Weight", 0);
+    		}
+    	}	
+    	
+    	if(jText_feet.getText().contentEquals("")) {
+    		JOptionPane.showMessageDialog(rootPane,  "Enter valid height!", "Feet", 0);
+    		return;
+    	}else {
+    		try {
+    			c.profile.setFeet(Double.valueOf(jText_feet.getText()));
+    		}catch(NumberFormatException e) {
+    			JOptionPane.showMessageDialog(rootPane,  "Enter valid feet!", "Feet", 0);
+    		}
+    	}	
+    	
+    	
+    	if(jText_inch.getText().contentEquals("")) {
+    		JOptionPane.showMessageDialog(rootPane,  "Enter valid height!", "Inch", 0);
+    		return;
+    	}else {
+    		try {
+    			c.profile.setInches(Double.valueOf(jText_inch.getText()));
+    		}catch(NumberFormatException e) {
+    			JOptionPane.showMessageDialog(rootPane,  "Enter valid height!", "Inch", 0);
+    		}
+    	}
+    	
     	
     	if(jRadioButtonMetric.isSelected()) {
     		c.profile.setUnits("metric");
