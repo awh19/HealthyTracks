@@ -437,20 +437,23 @@ public class RegisterForm extends javax.swing.JFrame {
 
     private void jButtonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateActionPerformed
         // TODO add your handling code here:
+    	
     	profileConnector c = new profileConnector();
-    	c.setFirstName(jTextFirstName.getText());
-    	c.setLastName(jTextLastName.getText());
-    	c.setUsername(jTextUsername.getText());
-    	c.setPassword(jPasswordField1.getPassword().toString());
-    	c.setWeight(Double.valueOf(jTextWeight.getText()));
-    	c.setFeet(Double.valueOf(jText_feet.getText()));
-    	c.setFeet(Double.valueOf(jText_inch.getText()));
+    	  	
+    	c.profile.setFirstName(jTextFirstName.getText());
+    	c.profile.setLastName(jTextLastName.getText());
+    	c.profile.setUsername(jTextUsername.getText());
+    	c.profile.setPassword(jPasswordField1.getPassword().toString());
+    	c.profile.setWeight(Double.valueOf(jTextWeight.getText()));
+    	c.profile.setFeet(Double.valueOf(jText_feet.getText()));
+    	c.profile.setFeet(Double.valueOf(jText_inch.getText()));
     	
     	if(jRadioButtonMetric.isSelected()) {
-    		c.setUnits("metric");
+    		c.profile.setUnits("metric");
     	}else {
-    		c.setUnits("customary");
+    		c.profile.setUnits("customary");
     	}
+    	System.out.println(c.profile.getFirstName());
     	
     }//GEN-LAST:event_jButtonCreateActionPerformed
 
