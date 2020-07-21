@@ -28,7 +28,8 @@ public class WorkoutLogGUI extends javax.swing.JFrame {
         exerciseList = new javax.swing.JList(logController.getPossibleExercises().toArray());
         exerciseList.setCellRenderer(new ExerciseListCellRenderer());
         logListPanel = new javax.swing.JScrollPane();
-        logList = new javax.swing.JList<>();
+        logList = new javax.swing.JList(logController.getLogExercises().toArray());
+        logList.setCellRenderer(new LogListCellRenderer());
         jPanel1 = new javax.swing.JPanel();
         addExerciseButton = new javax.swing.JButton();
         removeExerciseButton = new javax.swing.JButton();

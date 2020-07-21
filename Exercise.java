@@ -21,6 +21,14 @@ public class Exercise {
         reps = 0;
     }
 
+    public Exercise(String n, String d, double w, int s, int r){
+        name = n;
+        description = d;
+        weight = w;
+        sets = s;
+        reps = r;
+    }
+
     public String getName() {
         return name;
     }
@@ -45,6 +53,14 @@ public class Exercise {
         this.weight = weight;
     }
 
+    public int getSets() {
+        return sets;
+    }
+
+    public void setSets(int sets) {
+        this.sets = sets;
+    }
+
     public int getReps() {
         return reps;
     }
@@ -52,4 +68,5 @@ public class Exercise {
     public void setReps(int reps) {
         this.reps = reps;
     }
+
 }
