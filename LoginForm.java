@@ -1,3 +1,8 @@
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -287,7 +292,20 @@ public class LoginForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginForm().setVisible(true);
+                Screen splash = new Screen();
+                splash.setVisible(true);
+                int delay = 8000; // Delay in milliseconds
+
+                Timer timer = new Timer(delay, new ActionListener() {
+                 public void actionPerformed(ActionEvent e) {
+                        splash.setVisible(true); // Show the second frame
+                        splash.dispose();
+                        new LoginForm().setVisible(true); // Hide the first frame
+                     }
+                });
+                timer.start();
+               // new LoginForm().setVisible(true);
+                
             }
         });
     }
