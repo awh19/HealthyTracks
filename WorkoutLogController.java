@@ -48,8 +48,15 @@ public class WorkoutLogController {
         return logExercises;
     }
 
-    public void addExerciseToLog(Exercise e){
-        System.out.println(e);
+    public boolean addExerciseToLog(Exercise e){
+        try {
+            String query = "INSERT INTO tbl_workoutLog (`exerciseName`, `description`, `weight`, `sets`, `reps`) VALUES ('"+e.getName()+"', '"+e.getDescription()+"', '"+e.getWeight()+"', '"+e.getSets()+"', '"+e.getReps()+"');";
+            stmt.executeUpdate(query);
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
     }
 
 
