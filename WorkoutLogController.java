@@ -48,5 +48,9 @@ public class WorkoutLogController {
         return logExercises;
     }
 
+    public void addExerciseToLog(Exercise e){
+        System.out.println(e);
+    }
+
 
 }

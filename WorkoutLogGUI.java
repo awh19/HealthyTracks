@@ -217,6 +217,8 @@ public class WorkoutLogGUI extends javax.swing.JFrame {
 
     private void addExerciseButtonActionPerformed(java.awt.event.ActionEvent evt) {
         System.out.println("This is where we would add an exercise to the workout log");
+        Exercise selectedExercise = exerciseList.getSelectedValue();
+
         // TODO add your handling code here:
     }
 
@@ -279,14 +281,14 @@ public class WorkoutLogGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify
     private javax.swing.JButton addExerciseButton;
     private javax.swing.JButton cancelButton;
-    private javax.swing.JList<String> exerciseList;
+    private javax.swing.JList<Exercise> exerciseList;
     private javax.swing.JScrollPane exerciseListPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JList<String> logList;
+    private javax.swing.JList<Exercise> logList;
     private javax.swing.JScrollPane logListPanel;
     private javax.swing.JButton removeExerciseButton;
     private javax.swing.JTextField repsTextField;
