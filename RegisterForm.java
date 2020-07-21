@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -57,7 +59,7 @@ public class RegisterForm extends javax.swing.JFrame {
         jRadioButtonMetric = new javax.swing.JRadioButton();
         jRadioButtonCustomary = new javax.swing.JRadioButton();
         jLabel_cm = new javax.swing.JLabel();
-        jTextHeight2 = new javax.swing.JTextField();
+        jTextWeight = new javax.swing.JTextField();
         jText_feet = new javax.swing.JTextField();
         jText_inch = new javax.swing.JTextField();
         jLabel_feet = new javax.swing.JLabel();
@@ -246,10 +248,10 @@ public class RegisterForm extends javax.swing.JFrame {
         jLabel_cm.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_cm.setText("cm");
 
-        jTextHeight2.setBackground(new java.awt.Color(108, 122, 137));
-        jTextHeight2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jTextHeight2.setForeground(new java.awt.Color(228, 241, 254));
-        jTextHeight2.addActionListener(new java.awt.event.ActionListener() {
+        jTextWeight.setBackground(new java.awt.Color(108, 122, 137));
+        jTextWeight.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jTextWeight.setForeground(new java.awt.Color(228, 241, 254));
+        jTextWeight.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextHeight2ActionPerformed(evt);
             }
@@ -338,7 +340,7 @@ public class RegisterForm extends javax.swing.JFrame {
                                 .addComponent(jButtonCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(85, 85, 85)
-                                .addComponent(jTextHeight2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jTextWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(91, 91, 91))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabelRegister)
@@ -380,7 +382,7 @@ public class RegisterForm extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextHeight2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -437,6 +439,80 @@ public class RegisterForm extends javax.swing.JFrame {
 
     private void jButtonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateActionPerformed
         // TODO add your handling code here:
+    	
+    	profileConnector c = new profileConnector();
+    	
+    	if(jTextFirstName.getText().contentEquals("")) {
+    		JOptionPane.showMessageDialog(rootPane,  "Enter valid first name!", "Enter Name", 0);
+    		return;
+    	}else {
+        	c.profile.setFirstName(jTextFirstName.getText());
+
+    	}
+    	if(jTextLastName.getText().contentEquals("")) {
+    		JOptionPane.showMessageDialog(rootPane,  "Enter valid last name!", "Enter Name", 0);
+    		return;
+    	}else {   		
+    		c.profile.setLastName(jTextLastName.getText());
+    	}
+    	
+    	if(jPasswordField1.getPassword().equals("")) {
+    		JOptionPane.showMessageDialog(rootPane,  "Enter valid password!", "Enter Password", 0);
+    		return;
+    	}else {   
+    		c.profile.setPassword(jPasswordField1.getPassword().toString());
+    	}
+    	
+    	if(jTextUsername.getText().contentEquals("")) {
+    		JOptionPane.showMessageDialog(rootPane,  "Enter valid ussername!", "Username", 0);
+    		return;
+    	}else {   		
+    		c.profile.setUsername(jTextUsername.getText());
+    	}	
+		
+
+    	if(jTextWeight.getText().contentEquals("")) {
+    		JOptionPane.showMessageDialog(rootPane,  "Enter valid weight!", "Weight", 0);
+    		return;
+    	}else {
+    		try {
+    			c.profile.setWeight(Double.valueOf(jTextWeight.getText()));
+    		}catch(NumberFormatException e) {
+    			JOptionPane.showMessageDialog(rootPane,  "Enter valid weight!", "Weight", 0);
+    		}
+    	}	
+    	
+    	if(jText_feet.getText().contentEquals("")) {
+    		JOptionPane.showMessageDialog(rootPane,  "Enter valid height!", "Feet", 0);
+    		return;
+    	}else {
+    		try {
+    			c.profile.setFeet(Double.valueOf(jText_feet.getText()));
+    		}catch(NumberFormatException e) {
+    			JOptionPane.showMessageDialog(rootPane,  "Enter valid feet!", "Feet", 0);
+    		}
+    	}	
+    	
+    	
+    	if(jText_inch.getText().contentEquals("")) {
+    		JOptionPane.showMessageDialog(rootPane,  "Enter valid height!", "Inch", 0);
+    		return;
+    	}else {
+    		try {
+    			c.profile.setInches(Double.valueOf(jText_inch.getText()));
+    		}catch(NumberFormatException e) {
+    			JOptionPane.showMessageDialog(rootPane,  "Enter valid height!", "Inch", 0);
+    		}
+    	}
+    	
+    	
+    	if(jRadioButtonMetric.isSelected()) {
+    		c.profile.setUnits("metric");
+    	}else {
+    		c.profile.setUnits("customary");
+    	}
+    	System.out.println(c.profile.getFirstName());
+    	
     }//GEN-LAST:event_jButtonCreateActionPerformed
 
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
@@ -549,7 +625,7 @@ public class RegisterForm extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButtonCustomary;
     private javax.swing.JRadioButton jRadioButtonMetric;
     private javax.swing.JTextField jTextFirstName;
-    private javax.swing.JTextField jTextHeight2;
+    private javax.swing.JTextField jTextWeight;
     private javax.swing.JTextField jTextLastName;
     private javax.swing.JTextField jTextUsername;
     private javax.swing.JTextField jText_cm;
