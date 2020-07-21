@@ -1,3 +1,6 @@
+import javax.swing.*;
+import java.util.ArrayList;
+
 /**
  *
  * @author Andrew
@@ -5,6 +8,7 @@
 public class WorkoutLogGUI extends javax.swing.JFrame {
     private WorkoutLogController logController;
     private WorkoutLog logModel;
+    private DefaultListModel<Exercise> listModel;
 
     /**
      * Creates new form WorkoutLogGUI
@@ -25,10 +29,13 @@ public class WorkoutLogGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         exerciseListPanel = new javax.swing.JScrollPane();
-        exerciseList = new javax.swing.JList(logController.getPossibleExercises().toArray());
+        exerciseList = new javax.swing.JList();
+        this.updatePossibleExerciseList();
         exerciseList.setCellRenderer(new ExerciseListCellRenderer());
         logListPanel = new javax.swing.JScrollPane();
-        logList = new javax.swing.JList<>();
+        logList = new javax.swing.JList();
+        this.updateLogList();
+        logList.setCellRenderer(new LogListCellRenderer());
         jPanel1 = new javax.swing.JPanel();
         addExerciseButton = new javax.swing.JButton();
         removeExerciseButton = new javax.swing.JButton();
@@ -215,7 +222,13 @@ public class WorkoutLogGUI extends javax.swing.JFrame {
     }// </editor-fold>
 
     private void addExerciseButtonActionPerformed(java.awt.event.ActionEvent evt) {
+
         System.out.println("This is where we would add an exercise to the workout log");
+        Exercise selectedExercise = exerciseList.getSelectedValue();
+        if (logController.addExerciseToLog(selectedExercise)){
+            this.updateLogList();
+        } //Adds the exercise to the database, but doesn't refresh GUI just yet
+
         // TODO add your handling code here:
     }
 
@@ -238,6 +251,20 @@ public class WorkoutLogGUI extends javax.swing.JFrame {
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {
         System.out.println("This is where we cancel the GUI");
         // TODO add your handling code here:
+    }
+
+    private void updatePossibleExerciseList(){
+        listModel = new DefaultListModel<>();
+        ArrayList<Exercise> possibleExerciseList = logController.getPossibleExercises();
+        possibleExerciseList.forEach(exercise -> listModel.addElement(exercise));
+        exerciseList.setModel(listModel);
+    }
+
+    private void updateLogList(){
+        listModel = new DefaultListModel<>();
+        ArrayList<Exercise> logExerciseList = logController.getLogExercises();
+        logExerciseList.forEach(exercise -> listModel.addElement(exercise));
+        logList.setModel(listModel);
     }
 
     /**
@@ -278,14 +305,14 @@ public class WorkoutLogGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify
     private javax.swing.JButton addExerciseButton;
     private javax.swing.JButton cancelButton;
-    private javax.swing.JList<String> exerciseList;
+    private javax.swing.JList<Exercise> exerciseList;
     private javax.swing.JScrollPane exerciseListPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JList<String> logList;
+    private javax.swing.JList<Exercise> logList;
     private javax.swing.JScrollPane logListPanel;
     private javax.swing.JButton removeExerciseButton;
     private javax.swing.JTextField repsTextField;

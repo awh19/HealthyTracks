@@ -34,5 +34,30 @@ public class WorkoutLogController {
         return possibleExercises;
     }
 
+    public ArrayList<Exercise> getLogExercises(){
+        ArrayList<Exercise> logExercises = new ArrayList<>();
+        try {
+            //TODO: Create list of exercises and use GUI to populate list.
+            rs = stmt.executeQuery("SELECT * FROM tbl_workoutLog");
+            while(rs.next()){
+                logExercises.add(new Exercise(rs.getString("exerciseName"), rs.getString("description"), rs.getDouble("weight"), rs.getInt("sets"), rs.getInt("reps")));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return logExercises;
+    }
+
+    public boolean addExerciseToLog(Exercise e){
+        try {
+            String query = "INSERT INTO tbl_workoutLog (`exerciseName`, `description`, `weight`, `sets`, `reps`) VALUES ('"+e.getName()+"', '"+e.getDescription()+"', '"+e.getWeight()+"', '"+e.getSets()+"', '"+e.getReps()+"');";
+            stmt.executeUpdate(query);
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
+    }
+
 
 }
