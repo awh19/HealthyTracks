@@ -5,6 +5,7 @@ import java.sql.*;
 
 
 public class profileConnector {
+    private WorkoutLog workoutLog;
     private Connection con;
     private Statement stmt;
     private ResultSet rs;
@@ -16,7 +17,7 @@ public class profileConnector {
     
     public profileConnector() {
         con = conMag.getConnection();
-        System.out.println("connection made");
+        System.out.println("connection made")
         try {
             stmt = con.createStatement();
             
@@ -26,9 +27,9 @@ public class profileConnector {
         
     }
     
-    public boolean addProfile(){
+    public boolean addProfile(Profile e){
         try {
-            String query = "INSERT INTO tbl_login (`userName`, `password`, `firstName`, `lastName`, `weight`, 'feet', 'inches') VALUES ('awh19','password','Andrew','Hill','175','5','11');";
+            String query = "INSERT INTO tbl_login (`userName`, `password`, `firstName`, `lastName`, `units`, 'weight', 'feet', 'inches') VALUES ('"+e.getUsername()+"','"+e.getPassword()+"', '"+e.getFirstName()+"', '"+e.getLastName()+"', '"+e.getUnits()+"', '"+e.getweight()+"', '"+e.getFeet()+"', '"+e.getInches()+"');";
             stmt.executeUpdate(query);
             return true;
         } catch (SQLException throwables) {

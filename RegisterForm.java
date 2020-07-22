@@ -514,7 +514,7 @@ public class RegisterForm extends javax.swing.JFrame {
     		c.profile.setUnits("customary");
     	}
     	
-    	c.addProfile();
+    	c.addProfile(c.profile);
     	System.out.println(c.profile.getFirstName());
     	
     }//GEN-LAST:event_jButtonCreateActionPerformed
