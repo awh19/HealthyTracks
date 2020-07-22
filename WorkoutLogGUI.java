@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.util.ArrayList;
 
 /**
@@ -59,6 +61,18 @@ public class WorkoutLogGUI extends javax.swing.JFrame {
         exerciseListPanel.setViewportView(exerciseList);
 
         logListPanel.setViewportView(logList);
+
+        logList.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                Exercise selectedExercise = logList.getSelectedValue();
+                if (selectedExercise != null) {
+                    setsTextField.setText(Integer.toString(selectedExercise.getSets()));
+                    weightTextField.setText(Double.toString(selectedExercise.getWeight()));
+                    repsTextField.setText(Integer.toString(selectedExercise.getReps()));
+                }
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(50, 58, 69));
 
