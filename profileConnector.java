@@ -1,3 +1,4 @@
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -29,7 +30,7 @@ public class profileConnector {
     
     public boolean addProfile(Profile e){
         try {
-            String query = "INSERT INTO tbl_login (`userName`, `password`, `firstName`, `lastName`, 'weight', 'feet', 'inches') VALUES ('"+e.getUsername()+"','"+e.getPassword()+"', '"+e.getFirstName()+"', '"+e.getLastName()+"', '"+e.getUnits()+"', '"+e.getWeight()+"', '"+e.getFeet()+"', '"+e.getInches()+"');";
+            String query = "INSERT INTO tbl_login (`userName`, `password`, `firstName`, `lastName`, 'weight', 'feet', 'inches') VALUES ('"+e.getUsername()+"','"+e.getPassword()+"', '"+e.getFirstName()+"', '"+e.getLastName()+"', '"+e.getWeight()+"', '"+e.getFeet()+"', '"+e.getInches()+"');";
             stmt.executeUpdate(query);
             return true;
         } catch (SQLException throwables) {
@@ -38,12 +39,5 @@ public class profileConnector {
         return false;
     }
     
-
-
-    
-
-    
-
-	
 	
 }
