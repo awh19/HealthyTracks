@@ -223,7 +223,6 @@ public class WorkoutLogGUI extends javax.swing.JFrame {
 
     private void addExerciseButtonActionPerformed(java.awt.event.ActionEvent evt) {
 
-        System.out.println("This is where we would add an exercise to the workout log");
         Exercise selectedExercise = exerciseList.getSelectedValue();
         if (logController.addExerciseToLog(selectedExercise)){
             this.updateLogList();
@@ -233,7 +232,10 @@ public class WorkoutLogGUI extends javax.swing.JFrame {
     }
 
     private void removeExerciseButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        System.out.println("This is where we would remove an exercise from the workout log");
+        Exercise selectedExercise = logList.getSelectedValue();
+        if (logController.removeExerciseFromLog(selectedExercise)){
+            this.updateLogList();
+        } //Adds the exercise to the database, but doesn't refresh GUI just yet
         // TODO add your handling code here:
     }
 
