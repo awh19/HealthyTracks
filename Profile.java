@@ -9,6 +9,7 @@ public class Profile{
     private double inches;
     private double weight;
     private String units;
+    private double BMI;
     
 
     public String getFirstName() {
@@ -82,6 +83,18 @@ public class Profile{
     public void setPassword(String pass) {
     	this.password = pass;
     }
+
+    public void setBMI(double BMI)
+    {
+        this.BMI = BMI;
+    }
+
+    public double getBMI()
+    {
+        return this.BMI;
+    }
+
+
 	
 	
 }
