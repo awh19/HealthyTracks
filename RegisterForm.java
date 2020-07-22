@@ -1,4 +1,5 @@
 import javax.swing.JOptionPane;
+import javax.sql.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -440,7 +441,7 @@ public class RegisterForm extends javax.swing.JFrame {
     private void jButtonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateActionPerformed
         // TODO add your handling code here:
     	
-    	profileConnector c = new profileConnector();
+    	
     	
     	if(jTextFirstName.getText().contentEquals("")) {
     		JOptionPane.showMessageDialog(rootPane,  "Enter valid first name!", "Enter Name", 0);
@@ -506,11 +507,14 @@ public class RegisterForm extends javax.swing.JFrame {
     	}
     	
     	
+    	
     	if(jRadioButtonMetric.isSelected()) {
     		c.profile.setUnits("metric");
     	}else {
     		c.profile.setUnits("customary");
     	}
+    	
+    	c.addProfile();
     	System.out.println(c.profile.getFirstName());
     	
     }//GEN-LAST:event_jButtonCreateActionPerformed
@@ -631,5 +635,6 @@ public class RegisterForm extends javax.swing.JFrame {
     private javax.swing.JTextField jText_cm;
     private javax.swing.JTextField jText_feet;
     private javax.swing.JTextField jText_inch;
+    public profileConnector c = new profileConnector();
     // End of variables declaration//GEN-END:variables
 }
