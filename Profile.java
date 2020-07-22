@@ -10,7 +10,11 @@ public class Profile{
     private double weight;
     private String units;
     private double BMI;
-    
+
+
+    public String getUsername() {
+        return this.username;
+    }
 
     public String getFirstName() {
     	return this.firstName;
