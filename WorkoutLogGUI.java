@@ -226,9 +226,7 @@ public class WorkoutLogGUI extends javax.swing.JFrame {
         Exercise selectedExercise = exerciseList.getSelectedValue();
         if (logController.addExerciseToLog(selectedExercise)){
             this.updateLogList();
-        } //Adds the exercise to the database, but doesn't refresh GUI just yet
-
-        // TODO add your handling code here:
+        }
     }
 
     private void removeExerciseButtonActionPerformed(java.awt.event.ActionEvent evt) {

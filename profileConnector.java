@@ -5,7 +5,6 @@ import java.sql.*;
 
 
 public class profileConnector {
-    private WorkoutLog workoutLog;
     private Connection con;
     private Statement stmt;
     private ResultSet rs;
@@ -17,7 +16,7 @@ public class profileConnector {
     
     public profileConnector() {
         con = conMag.getConnection();
-        System.out.println("connection made")
+        System.out.println("connection made");
         try {
             stmt = con.createStatement();
             
@@ -29,11 +28,8 @@ public class profileConnector {
     
     public boolean addProfile(){
         try {
-            String query = "INSERT INTO tbl_login VALUES ('"profile.getUsername()"', '"profile.getPassword()"', '"profile.getFirstName()"', '"profile.getLastName()"', '"profile.getUnits()"', '"profile.getWeight()"', '"profile.getFeet()"', '"profile.getInches()"');";
+            String query = "INSERT INTO tbl_login (`userName`, `password`, `firstName`, `lastName`, `weight`, 'feet', 'inches') VALUES ('awh19','password','Andrew','Hill','175','5','11');";
             stmt.executeUpdate(query);
-            
-            stmt.executeUpdate("INSERT INTO `nkfszrrxkyw5jypd`.`tbl_login` ( `userName`, `password`, `firstName`, `lastName`, `units`, `weight`, `feet`, `inches`) VALUES ('awn12', 'pass', 'adam', 'nash', 'customary', '100', '5', '10');");
-
             return true;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
