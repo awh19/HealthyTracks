@@ -39,6 +39,25 @@ public class profileConnector {
         }
         return false;
     }
+
+    public boolean usernameExists(String username){
+        boolean exists = false;
+        try {
+            String query = "SELECT userName FROM tbl_login";
+            ResultSet rs = stmt.executeQuery(query);
+
+            while(rs.next()){
+                String userName = rs.getString("userName");
+                if(userName.equals(username)) {
+                    exists = true;
+                }
+            }
+
+        } catch (SQLException throwables) {
+            //return false;
+        }
+        return exists;
+    }
     
 	
 }

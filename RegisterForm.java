@@ -460,15 +460,25 @@ public class RegisterForm extends javax.swing.JFrame {
     	if(jPasswordField1.getPassword().equals("")) {
     		JOptionPane.showMessageDialog(rootPane,  "Enter valid password!", "Enter Password", 0);
     		return;
-    	}else {   
-    		c.profile.setPassword(jPasswordField1.getPassword().toString());
+    	}else {
+    	    if(jPasswordField1.getPassword().length < 8){
+                JOptionPane.showMessageDialog(rootPane,  "Password must be at least 8 characters!", "Enter Valid Password", 0);
+                return;
+            }
+
+    		c.profile.setPassword(new String(jPasswordField1.getPassword()));
     	}
     	
     	if(jTextUsername.getText().contentEquals("")) {
-    		JOptionPane.showMessageDialog(rootPane,  "Enter valid ussername!", "Username", 0);
+    		JOptionPane.showMessageDialog(rootPane,  "Enter valid username!", "Username", 0);
     		return;
-    	}else {   		
-    		c.profile.setUsername(jTextUsername.getText());
+    	}else {
+            if(c.usernameExists(jTextUsername.getText())){
+                JOptionPane.showMessageDialog(rootPane,  "Sorry, username already in use!", "Username", 0);
+                return;
+            }
+
+                c.profile.setUsername(jTextUsername.getText());
     	}	
 		
 
