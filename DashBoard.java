@@ -99,7 +99,7 @@ public class DashBoard extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(44, 62, 80));
 
-        jLabelUserProfile.setIcon(new javax.swing.ImageIcon("C:\\Users\\aet00\\OneDrive\\Desktop\\ProfilePage\\src\\main\\java\\usericon.png")); // NOI18N
+        jLabelUserProfile.setIcon(new javax.swing.ImageIcon("./usericon.png")); // NOI18N
         jLabelUserProfile.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelUserProfile.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -111,7 +111,7 @@ public class DashBoard extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("User Profile");
 
-        jLabelTimer.setIcon(new javax.swing.ImageIcon("C:\\Users\\aet00\\OneDrive\\Desktop\\ProfilePage\\src\\main\\java\\timer.PNG")); // NOI18N
+        jLabelTimer.setIcon(new javax.swing.ImageIcon("./timer.PNG")); // NOI18N
         jLabelTimer.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabelTimer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -119,7 +119,7 @@ public class DashBoard extends javax.swing.JFrame {
             }
         });
 
-        jLabelBMICalc.setIcon(new javax.swing.ImageIcon("C:\\Users\\aet00\\OneDrive\\Desktop\\ProfilePage\\src\\main\\java\\Calculator.png")); // NOI18N
+        jLabelBMICalc.setIcon(new javax.swing.ImageIcon("./Calculator.png")); // NOI18N
         jLabelBMICalc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelBMICalc.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -135,7 +135,7 @@ public class DashBoard extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("BMI Calculator");
 
-        jLabelLog.setIcon(new javax.swing.ImageIcon("C:\\Users\\aet00\\OneDrive\\Desktop\\ProfilePage\\src\\main\\java\\log.png")); // NOI18N
+        jLabelLog.setIcon(new javax.swing.ImageIcon("./log.png")); // NOI18N
         jLabelLog.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
