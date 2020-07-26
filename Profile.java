@@ -21,7 +21,7 @@ public class Profile{
         feet = 0;
         inches = 0;
         weight = 0;
-        units = 0;
+        //units = 0;
         BMI = 0;
     }
     
