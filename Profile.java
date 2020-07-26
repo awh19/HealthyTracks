@@ -1,6 +1,7 @@
 
 
 public class Profile{
+	
     private String firstName;
     private String lastName;
     private String username;
@@ -9,7 +10,24 @@ public class Profile{
     private double inches;
     private double weight;
     private String units;
+    private double BMI;
+
+
+    public Profile() {
+        firstName = "";
+        lastName = "";
+        username = "";
+        password = "";
+        feet = 0;
+        inches = 0;
+        weight = 0;
+        //units = 0;
+        BMI = 0;
+    }
     
+    public String getUsername() {
+        return this.username;
+    }
 
     public String getFirstName() {
     	return this.firstName;
@@ -82,6 +100,18 @@ public class Profile{
     public void setPassword(String pass) {
     	this.password = pass;
     }
+
+    public void setBMI(double BMI)
+    {
+        this.BMI = BMI;
+    }
+
+    public double getBMI()
+    {
+        return this.BMI;
+    }
+
+
 	
 	
 }

@@ -59,5 +59,16 @@ public class WorkoutLogController {
         return false;
     }
 
+    public boolean removeExerciseFromLog(Exercise e){
+        try {
+            String query = "DELETE FROM tbl_workoutLog WHERE exerciseName = '" + e.getName() + "'AND weight = '" + e.getWeight() + "'";
+            stmt.executeUpdate(query);
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
+    }
+
 
 }

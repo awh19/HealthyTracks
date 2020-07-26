@@ -42,8 +42,6 @@ public class BMIcalc_Dash extends javax.swing.JFrame implements ActionListener
 
         frame.setUndecorated(true);
 
-        //frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
-
 
 
 
@@ -96,7 +94,10 @@ public class BMIcalc_Dash extends javax.swing.JFrame implements ActionListener
         close.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         close.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent e) {
-                System.exit(0);
+                //System.exit(0);
+                //frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                frame.setVisible(false);
+
             }
         });
 
