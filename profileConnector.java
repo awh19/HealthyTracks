@@ -58,6 +58,30 @@ public class profileConnector {
         }
         return exists;
     }
+
+    public boolean passwordValid(String username, String passwordEntered){
+        boolean isValid = false;
+        try {
+            String query = "SELECT userName, password FROM tbl_login";
+            ResultSet rs = stmt.executeQuery(query);
+
+            while(rs.next()){
+                String userName = rs.getString("userName");
+                String pass = rs.getString("password");
+
+                System.out.println(pass + " " + userName);
+                if(userName.equals(username) && pass.equals(passwordEntered)) {
+                    System.out.println("password is valid");
+                    // add values to profile 
+                    isValid = true;
+                }
+            }
+
+        } catch (SQLException throwables) {
+            //return false;
+        }
+        return isValid;
+    }
     
 	
 }

@@ -1,7 +1,7 @@
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.Timer;
+import javax.swing.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -253,6 +253,13 @@ public class LoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelRegisterMouseClicked
 
     private void jButtonLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonLoginMouseClicked
+        profileConnector c = new profileConnector();
+
+        System.out.println(new String(jPasswordField1.getPassword()) + jTextField2.getText());
+        if(!c.passwordValid(new String(jPasswordField1.getPassword()), jTextField2.getText())){
+            JOptionPane.showMessageDialog(rootPane,  "Invalid username or password. Try again!", "Invalid Login", 0);
+            return;
+        }
         //check password later
         DashBoard dashboard = new  DashBoard();
         dashboard.setVisible(true);
@@ -292,9 +299,10 @@ public class LoginForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+
                 Screen splash = new Screen();
                 splash.setVisible(true);
-                int delay = 8000; // Delay in milliseconds
+                int delay = 10000; // Delay in milliseconds
 
                 Timer timer = new Timer(delay, new ActionListener() {
                  public void actionPerformed(ActionEvent e) {
