@@ -147,10 +147,17 @@ public class DashBoard extends javax.swing.JFrame {
 
         jLabelLog.setIcon(new javax.swing.ImageIcon("./log.png")); // NOI18N
         jLabelLog.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelLog.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelLogMouseClicked(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Workout Log");
+
+
 
         btnTimer.setText("Timer");
         btnTimer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -290,6 +297,11 @@ public class DashBoard extends javax.swing.JFrame {
         StopWatch stopWatchGUI = new StopWatch();
         stopWatchGUI.setVisible(true);
     }//GEN-LAST:event_btnStopwatchMouseClicked
+
+    private void jLabelLogMouseClicked(java.awt.event.MouseEvent evt) {
+        WorkoutLogGUI logGUIworkout = new WorkoutLogGUI();
+        logGUIworkout.setVisible(true);
+    }
 
     /**
      * @param args the command line arguments
