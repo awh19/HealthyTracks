@@ -254,6 +254,13 @@ public class WorkoutLogGUI extends javax.swing.JFrame {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {
         System.out.println("This is where we save the workout log and call on the controller");
+        Exercise selectedExercise = logList.getSelectedValue();
+        selectedExercise.setSets(Integer.parseInt(setsTextField.getText()));
+        selectedExercise.setReps(Integer.parseInt(repsTextField.getText()));
+        selectedExercise.setWeight(Double.parseDouble(weightTextField.getText()));
+        if (logController.updateExercise(selectedExercise)){
+            this.updateLogList();
+        }
         // TODO add your handling code here:
     }
 

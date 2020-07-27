@@ -70,5 +70,16 @@ public class WorkoutLogController {
         return false;
     }
 
+    public boolean updateExercise(Exercise e){
+        try {
+            String query = "UPDATE tbl_workoutLog SET reps = '"+e.getReps()+"', sets = '"+e.getSets()+"', weight = '"+e.getWeight()+"' WHERE exerciseName = '"+e.getName()+"'";
+            stmt.executeUpdate(query);
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
+    }
+
 
 }
