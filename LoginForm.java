@@ -253,15 +253,17 @@ public class LoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelRegisterMouseClicked
 
     private void jButtonLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonLoginMouseClicked
-        profileConnector c = new profileConnector();
+
 
         System.out.println(new String(jPasswordField1.getPassword()) + jTextField2.getText());
         if(!c.passwordValid(new String(jPasswordField1.getPassword()), jTextField2.getText())){
             JOptionPane.showMessageDialog(rootPane,  "Invalid username or password. Try again!", "Invalid Login", 0);
             return;
         }
+
+
         //check password later
-        DashBoard dashboard = new  DashBoard();
+        DashBoard dashboard = new  DashBoard(c.profile);
         dashboard.setVisible(true);
         dashboard.pack();
         dashboard.setLocationRelativeTo(null);
@@ -331,5 +333,6 @@ public class LoginForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField2;
+    public profileConnector c = new profileConnector();
     // End of variables declaration//GEN-END:variables
 }

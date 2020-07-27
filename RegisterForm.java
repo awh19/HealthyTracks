@@ -572,7 +572,7 @@ public class RegisterForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButtonCustomaryMouseClicked
 
     private void jButtonCreateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCreateMouseClicked
-        DashBoard dashboard = new  DashBoard();
+        DashBoard dashboard = new  DashBoard(c.profile);
         dashboard.setVisible(true);
         dashboard.pack();
         dashboard.setLocationRelativeTo(null);
