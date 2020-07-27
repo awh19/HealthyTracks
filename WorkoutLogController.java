@@ -81,5 +81,16 @@ public class WorkoutLogController {
         return false;
     }
 
+    public boolean resetLog(){
+        try {
+            String query = "DELETE FROM tbl_workoutLog";
+            stmt.executeUpdate(query);
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
+    }
+
 
 }
