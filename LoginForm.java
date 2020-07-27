@@ -241,6 +241,8 @@ public class LoginForm extends javax.swing.JFrame {
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         // TODO add your handling code here:
+
+
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
     private void jLabelRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegisterMouseClicked
@@ -258,12 +260,14 @@ public class LoginForm extends javax.swing.JFrame {
         System.out.println(new String(jPasswordField1.getPassword()) + jTextField2.getText());
         if(!c.passwordValid(new String(jPasswordField1.getPassword()), jTextField2.getText())){
             JOptionPane.showMessageDialog(rootPane,  "Invalid username or password. Try again!", "Invalid Login", 0);
+            jPasswordField1.setText("");
+            jTextField2.setText("");
             return;
         }
 
 
         //check password later
-        DashBoard dashboard = new  DashBoard(c.profile);
+        DashBoard dashboard = new DashBoard(c.profile);
         dashboard.setVisible(true);
         dashboard.pack();
         dashboard.setLocationRelativeTo(null);
