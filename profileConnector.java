@@ -19,7 +19,7 @@ public class profileConnector {
     
     public profileConnector() {
         con = conMag.getConnection();
-        System.out.println("connection made");
+        //System.out.println("connection made");
         try {
             stmt = con.createStatement();
             
@@ -70,12 +70,9 @@ public class profileConnector {
                 String userName = rs.getString("userName");
                 String pass = rs.getString("password");
 
-                System.out.println(pass + " " + userName);
-                System.out.println("PARAMS PASSED: " + passwordEntered + " " + username);
-                if(userName.equals(username) && pass.equals(passwordEntered)) {
-                    System.out.println("password is valid");
-                    // add values to profile
 
+                if(userName.equals(username) && pass.equals(passwordEntered)) {
+                    // add values to profile
                     profile.setUsername(rs.getString("userName"));
                     profile.setPassword(rs.getString("password"));
                     profile.setFirstName(rs.getString("firstName"));
