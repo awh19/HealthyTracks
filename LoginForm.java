@@ -312,9 +312,13 @@ public class LoginForm extends javax.swing.JFrame {
 
                 Timer timer = new Timer(delay, new ActionListener() {
                  public void actionPerformed(ActionEvent e) {
-                        splash.setVisible(true); // Show the second frame
-                        splash.dispose();
-                        new LoginForm().setVisible(true); // Hide the first frame
+
+                        if(firstTime) {
+                            splash.setVisible(true); // Show the second frame
+                            splash.dispose();
+                            new LoginForm().setVisible(true); // Hide the first frame
+                            firstTime = false;
+                        }
                      }
                 });
                 timer.start();
@@ -338,5 +342,6 @@ public class LoginForm extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField2;
     public profileConnector c = new profileConnector();
+    public static boolean firstTime = true;
     // End of variables declaration//GEN-END:variables
 }
