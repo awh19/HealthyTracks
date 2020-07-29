@@ -59,9 +59,10 @@ public class profileConnector {
         return exists;
     }
 
-    public boolean passwordValid(String username, String passwordEntered){
+    public boolean passwordValid(String passwordEntered, String username){
         boolean isValid = false;
         try {
+
             String query = "SELECT userName, password, firstName, lastName, weight, feet, inches FROM tbl_login";
             ResultSet rs = stmt.executeQuery(query);
 
@@ -70,6 +71,7 @@ public class profileConnector {
                 String pass = rs.getString("password");
 
                 System.out.println(pass + " " + userName);
+                System.out.println("PARAMS PASSED: " + passwordEntered + " " + username);
                 if(userName.equals(username) && pass.equals(passwordEntered)) {
                     System.out.println("password is valid");
                     // add values to profile
