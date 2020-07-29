@@ -23,12 +23,13 @@ import java.awt.event.WindowEvent;
 public class timer2 extends javax.swing.JFrame {
 
 	private JPanel contentPane;
-	private JComboBox cbHour;
+
 	int sec, min, hour;
 	int sec1, min1, hour1;
 	Timer timer;
 	JLabel secondLabel, minuteLabel, hourLabel;
 	JButton startButton;
+	JComboBox cbMinutes, cbHour, cbSeconds;
 	
 	boolean flag = true;
 	boolean ifStop = false;
@@ -256,6 +257,18 @@ public class timer2 extends javax.swing.JFrame {
 				if(sec == 0 && min == 0 && hour ==0) {
 					JOptionPane.showMessageDialog(rootPane,  "Times Up!", "Stopped", 0);
 					timer.stop();
+
+					hour = 0;
+					min = 0;
+					sec = 0;
+
+					hourLabel.setText(""+ hour);
+					minuteLabel.setText(""+ min);
+					secondLabel.setText(""+ sec);
+
+					return;
+
+
 				}
 					
 				if(min == 0 && hour > 0) {
