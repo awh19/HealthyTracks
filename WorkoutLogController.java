@@ -23,7 +23,6 @@ public class WorkoutLogController {
     public ArrayList<Exercise> getPossibleExercises(){
         ArrayList<Exercise> possibleExercises = new ArrayList<>();
         try {
-            //TODO: Create list of exercises and use GUI to populate list.
             rs = stmt.executeQuery("SELECT * FROM tbl_exercises");
             while(rs.next()){
                 possibleExercises.add(new Exercise(rs.getString("name"), rs.getString("description")));

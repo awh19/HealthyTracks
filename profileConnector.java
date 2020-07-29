@@ -31,7 +31,7 @@ public class profileConnector {
     
     public boolean addProfile(Profile e){
         try {
-            String query = "INSERT INTO `tbl_login` (`userName`, `password`, `firstName`, `lastName`, `weight`, `feet`, `inches`) VALUES ('"+e.getUsername()+"', '"+e.getPassword()+"', '"+e.getFirstName()+"', '"+e.getLastName()+"', '"+e.getWeight()+"', '"+e.getFeet()+"', '"+e.getInches()+"');";
+            String query = "INSERT INTO `tbl_login` (`userName`, `password`, `firstName`, `lastName`, `weight`, `feet`, `inches`,`units`) VALUES ('"+e.getUsername()+"', '"+e.getPassword()+"', '"+e.getFirstName()+"', '"+e.getLastName()+"', '"+e.getWeight()+"', '"+e.getFeet()+"', '"+e.getInches()+"', '"+e.getUnits()+"');";
         	stmt.executeUpdate(query);
             return true;
         } catch (SQLException throwables) {
@@ -63,7 +63,7 @@ public class profileConnector {
         boolean isValid = false;
         try {
 
-            String query = "SELECT userName, password, firstName, lastName, weight, feet, inches FROM tbl_login";
+            String query = "SELECT userName, password, firstName, lastName, weight, feet, inches, units FROM tbl_login";
             ResultSet rs = stmt.executeQuery(query);
 
             while(rs.next()){
@@ -80,6 +80,7 @@ public class profileConnector {
                     profile.setWeight(rs.getDouble("weight"));
                     profile.setFeet(rs.getDouble("feet"));
                     profile.setInches(rs.getDouble("inches"));
+                    profile.setUnits(rs.getString("units"));
                     isValid = true;
                 }
             }
